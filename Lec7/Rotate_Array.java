@@ -15,13 +15,13 @@ public class Rotate_Array {
 	public static void Rotate(int[] arr, int k) {
 		int n = arr.length;
 		k = k % n;
-		//for (int j = 1; j <= k; j++) {
+		for (int j = 1; j <= k; j++) {
 			int item = arr[n - 1];
 			for (int i = n - 2; i >= 0; i--) {
 				arr[i + 1] = arr[i];
 			}
 			arr[0] = item;
-		//}
+		}
 	}
 
 }
