@@ -18,7 +18,12 @@ public class Rat_Chases {
 			}
 		}
 		PathPrint(maze, 0, 0, ans);
+		if (val == 0) {
+			System.out.println("NO PATH FOUND");
+		}
 	}
+
+	static int val = 0;
 
 	public static void PathPrint(char[][] maze, int cr, int cc, int[][] ans) {
 		if (cr < 0 || cc < 0 || cr >= maze.length || cc >= maze[0].length || maze[cr][cc] == 'X') {
@@ -27,12 +32,19 @@ public class Rat_Chases {
 		maze[cr][cc] = 'X';
 		ans[cr][cc] = 1;
 		if (cr == maze.length - 1 && cc == maze[0].length - 1) {
+			val = 1;
 			Display(ans);
 		}
-		PathPrint(maze, cr - 1, cc, ans);// up
-		PathPrint(maze, cr, cc - 1, ans);// left
-		PathPrint(maze, cr + 1, cc, ans);// down
-		PathPrint(maze, cr, cc + 1, ans);// right
+		int r[] = { -1, 0, 1, 0 };
+		int c[] = { 0, -1, 0, 1 };
+		for (int i = 0; i < c.length; i++) {
+			PathPrint(maze, cr + r[i], cc + c[i], ans);
+		}
+		
+//		PathPrint(maze, cr - 1, cc, ans);// up
+//		PathPrint(maze, cr, cc - 1, ans);// left
+//		PathPrint(maze, cr + 1, cc, ans);// down
+//		PathPrint(maze, cr, cc + 1, ans);// right
 		maze[cr][cc] = 'O';
 		ans[cr][cc] = 0;
 	}
