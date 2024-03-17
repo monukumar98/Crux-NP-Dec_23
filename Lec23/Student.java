@@ -12,7 +12,7 @@ public class Student {
 
 	public void SayHey(String name) {
 
-		System.out.println(name + " say hey " + name);
+		System.out.println(this.name + " say hey " + name);
 	}
 
 	public static void MentorName() {
