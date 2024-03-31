@@ -1,8 +1,8 @@
 package Lec24;
 
 public class Queue {
-	private int[] arr;
-	private int front;
+	protected int[] arr;
+	protected int front;
 	private int size;
 
 	public Queue() {
